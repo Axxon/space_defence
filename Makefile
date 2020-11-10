@@ -39,7 +39,7 @@ core-sources.save_current_dependencies_exact_versions: composer.json
 	@touch composer.lock
 
 core-sources.install: core-sources.save_current_dependencies_exact_versions
-	$(COMPOSER) install #--no-cache
+	$(COMPOSER) install --dev
 	@touch vendor
 
 # Tests

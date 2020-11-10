@@ -11,19 +11,18 @@ abstract class SupportCraft extends Vessel implements SupportOrders
 {
     protected MedicalUnit $medicalUnit;
 
-    public function addMedicalUnit(MedicalUnit $medicalUnit)
+    public function addMedicalUnit(MedicalUnit $medicalUnit): void
     {
         $this->medicalUnit = $medicalUnit;
     }
 
-    public function execute(Order $order)
+    public function execute(Order $order): void
     {
         $order->receiverIs($this);
     }
 
-    public function doThatNow(string $that)
+    public function doThatNow(string $that): void
     {
-        echo (string) $that;
     }
 
     public function helpOffensiveCraft(OffensiveCraft $offensiveCraft): void

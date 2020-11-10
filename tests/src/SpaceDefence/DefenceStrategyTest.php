@@ -4,7 +4,7 @@ namespace App\Tests\SpaceDefence;
 
 use App\SpaceDefence\FleetComposition;
 use App\SpaceDefence\FleetFactory;
-use App\SpaceDefence\Exception\InvalidComposition;
+use App\SpaceDefence\Exception;
 
 use PHPUnit\Framework\TestCase;
 
@@ -30,7 +30,7 @@ class DefenceStrategyTest extends TestCase
 
     public function testNotEqualFleetComposition()
     {
-        $this->expectException(InvalidComposition::class);
+        $this->expectException(Exception\InvalidFleetComposition::class);
 
         $fleetComposition = new FleetComposition();
         $fleetComposition->cargos = 5;

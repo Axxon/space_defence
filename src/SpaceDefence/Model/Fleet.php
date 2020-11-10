@@ -3,7 +3,7 @@
 namespace App\SpaceDefence\Model;
 
 use App\SpaceDefence\Exception\FleetMaxVessels;
-use App\SpaceDefence\Exception\InvalidComposition;
+use App\SpaceDefence\Exception\InvalidFleetComposition;
 use App\SpaceDefence\Model\Vessel\CommandShip;
 use App\SpaceDefence\Model\Vessel\OffensiveCraft;
 use App\SpaceDefence\Model\Vessel\SupportCraft;
@@ -29,7 +29,7 @@ final class Fleet
     }
     public function getOffensivesOfType(string $type): Collection
     {
-        return $this->offensiveCrafts->filter(function(Vessel $element) use ($type) {
+        return $this->offensiveCrafts->filter(function (Vessel $element) use ($type) {
             return $element->typeIs() == $type;
         });
     }
@@ -76,7 +76,7 @@ final class Fleet
     public function associateSupportAndAttackForces(): void
     {
         if (false == $this->isFleetGroupsEquals()) {
-            throw new InvalidComposition();
+            throw new InvalidFleetComposition();
         }
 
         for ($i=0; $i <= $this->offensiveCrafts->count() - 1; $i++) {
@@ -108,7 +108,7 @@ final class Fleet
     public function placeVesselsOnGridRandom(Grid $grid): void
     {
         $lastSentPosition = null;
-        $generatePosition = function() use ($grid) {
+        $generatePosition = function () use ($grid) {
             return Position::random($grid);
         };
 
@@ -124,7 +124,7 @@ final class Fleet
     public function pairVessels(Grid $grid): void
     {
         if (count($this->vessels()) % 2 != 0) {
-            throw new InvalidComposition();
+            throw new InvalidFleetComposition();
         }
 
         list($group1, $group2) = array_chunk($this->vessels()->toArray(), ceil(count($this->vessels()) / 2));
@@ -133,16 +133,16 @@ final class Fleet
         shuffle($group2);
 
         $lastSentPosition = null;
-        $generatePosition = function() use ($grid) {
+        $generatePosition = function () use ($grid) {
             return Position::random($grid);
         };
 
-        $adjacentPosition = function($position) {
+        $adjacentPosition = function ($position) {
             return Position::neighbourPosition($position);
         };
 
-        /** @var Vessel $vessel */
         $i = 0;
+        /** @var Vessel $vessel */
         foreach ($group1 as $vessel) {
             $grid->placeVesselAtPosition($position = $generatePosition(), $vessel);
             $vessel->pairWith($group2[$i]);

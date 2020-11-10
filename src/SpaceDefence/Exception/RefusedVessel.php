@@ -2,7 +2,9 @@
 
 namespace App\SpaceDefence\Exception;
 
-class RefusedVessel extends \Exception
+use Exception;
+
+class RefusedVessel extends Exception
 {
     public $message = 'invalid vessel';
 }

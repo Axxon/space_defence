@@ -19,7 +19,7 @@ final class Grid
         $this->positions = new ArrayCollection();
     }
 
-    public static function createDimension($x = 100, $y = 100)
+    public static function createDimension($x = 100, $y = 100): self
     {
         return new self($x, $y);
     }
@@ -56,7 +56,7 @@ final class Grid
             $a = [$position->y(), $position->x()];
             $b = [$positionCollectionItem->y(), $positionCollectionItem->x()];
 
-            if ($a === $b){
+            if ($a === $b) {
                 return true;
             }
         }
@@ -98,7 +98,7 @@ final class Grid
 
     public function getPositionForVessel(Vessel $vessel): Position
     {
-        return $this->positions->filter(function(Position $position) use ($vessel) {
+        return $this->positions->filter(function (Position $position) use ($vessel) {
             return $position->occupant() === $vessel;
         })->first();
     }

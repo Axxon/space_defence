@@ -12,7 +12,7 @@ services:
   php:
     build:
       context: etc/docker/php
-    image: test_project/php
+    image: space_defender/php
     working_dir: /srv
     volumes:
       - ./:/srv

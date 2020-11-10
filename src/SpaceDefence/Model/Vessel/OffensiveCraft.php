@@ -22,7 +22,6 @@ abstract class OffensiveCraft extends Vessel
         $this->fireCanons();
 
         $target->receiveAttack();
-
     }
 
     private function fireCanons(): void

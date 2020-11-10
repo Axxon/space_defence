@@ -26,7 +26,7 @@ final class Character
 
     private function assertVessels(Collection $vessels): void
     {
-        $vessels->map(function($vessel) {
+        $vessels->map(function ($vessel) {
             if (false == ($vessel instanceof Vessel)) {
                 throw new RefusedVessel();
             }

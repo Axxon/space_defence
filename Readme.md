@@ -17,5 +17,3 @@ z indice on Position and Grid, the issue will be the charge due to the search of
 Have a good code reading :)
 
 you can try make core.tests
-
-@todo add phpstan phpcs
