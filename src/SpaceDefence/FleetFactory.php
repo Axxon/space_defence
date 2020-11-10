@@ -16,7 +16,6 @@ final class FleetFactory
 
         $fleet = new Fleet($commandShip);
 
-
         if ($fleetComposition->cargos) {
             for ($i=1; $i <= $fleetComposition->cargos ; $i++) {
                 $fleet->addSupportCraft(new Vessel\SupportCraft\Cargo());

@@ -15,7 +15,7 @@ final class Position
         $this->occupiedBy = $vessel;
     }
 
-    public static function random(Grid $grid)
+    public static function random(Grid $grid): self
     {
         $x = rand(0, $grid->x());
         $y = rand(0, $grid->y());
@@ -33,7 +33,7 @@ final class Position
         return $this->y;
     }
 
-    public function occupiedBy(Vessel $vessel)
+    public function occupiedBy(Vessel $vessel): ?Vessel
     {
         $this->occupiedBy = $vessel;
     }

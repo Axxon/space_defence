@@ -22,7 +22,6 @@ final class Character
         if ($vessels) {
             $this->assertVessels($vessels);
         }
-
     }
 
     private function assertVessels(Collection $vessels): void

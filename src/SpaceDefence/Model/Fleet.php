@@ -7,7 +7,6 @@ use App\SpaceDefence\Exception\InvalidComposition;
 use App\SpaceDefence\Model\Vessel\CommandShip;
 use App\SpaceDefence\Model\Vessel\OffensiveCraft;
 use App\SpaceDefence\Model\Vessel\SupportCraft;
-use App\SpaceDefence\Exception;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -21,24 +20,18 @@ final class Fleet
     private Collection $supportCrafts;
     private int $fleetComposition;
 
-    public function getOffensivesOfType(string $type)
-    {
-        return $this->offensiveCrafts->filter(function(Vessel $element) use ($type) {
-            return $element->typeIs() == $type;
-        });
-    }
-
-    public function getSupportsOfType(string $type)
-    {
-
-    }
-
     public function __construct(CommandShip $commandShip)
     {
         $this->commandShip = $commandShip;
         $this->offensiveCrafts = new ArrayCollection();
         $this->supportCrafts = new ArrayCollection();
         $this->fleetComposition = 0;
+    }
+    public function getOffensivesOfType(string $type): Collection
+    {
+        return $this->offensiveCrafts->filter(function(Vessel $element) use ($type) {
+            return $element->typeIs() == $type;
+        });
     }
 
     public function addOffensiveCraft(OffensiveCraft $offensiveCraft): void
@@ -63,7 +56,7 @@ final class Fleet
         $this->fleetComposition++;
     }
 
-    private function assertMaxComposition()
+    private function assertMaxComposition(): void
     {
         if ($this->fleetComposition == self::MAX_VESSELS) {
             throw new FleetMaxVessels();
@@ -73,11 +66,6 @@ final class Fleet
     public function numberOfVessels(): int
     {
         return $this->fleetComposition;
-    }
-
-    public function defence()
-    {
-
     }
 
     public function isFleetGroupsEquals(): bool
@@ -117,7 +105,7 @@ final class Fleet
         return new ArrayCollection(array_merge($this->supportCrafts->toArray(), $this->offensiveCrafts->toArray()));
     }
 
-    public function placeVesselsOnGridRandom(Grid $grid)
+    public function placeVesselsOnGridRandom(Grid $grid): void
     {
         $lastSentPosition = null;
         $generatePosition = function() use ($grid) {

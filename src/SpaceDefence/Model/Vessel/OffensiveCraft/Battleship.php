@@ -12,6 +12,7 @@ final class Battleship extends OffensiveCraft
     {
         $this->cannons = 24;
         $this->type = self::TYPE;
+
         parent::__construct();
     }
 }

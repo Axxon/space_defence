@@ -6,7 +6,7 @@ use App\SpaceDefence\FleetComposition;
 use App\SpaceDefence\FleetFactory;
 use App\SpaceDefence\Model\Grid;
 use App\SpaceDefence\Model\Vessel;
-use App\SpaceDefence\Model\Vessel\OffensiveCraft\Battleship;
+
 use PHPUnit\Framework\TestCase;
 
 class GridTest extends TestCase

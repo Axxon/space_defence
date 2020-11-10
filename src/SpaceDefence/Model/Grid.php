@@ -2,8 +2,6 @@
 
 namespace App\SpaceDefence\Model;
 
-use App\SpaceDefence\Exception;
-
 use Doctrine\Common\Collections\ArrayCollection;
 
 final class Grid
