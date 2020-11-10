@@ -4,7 +4,6 @@ namespace App\Tests\SpaceDefence;
 
 use App\SpaceDefence\FleetComposition;
 use App\SpaceDefence\FleetFactory;
-use App\SpaceDefence\DefenceStrategy;
 use App\SpaceDefence\Exception\InvalidComposition;
 
 use PHPUnit\Framework\TestCase;
@@ -24,8 +23,7 @@ class DefenceStrategyTest extends TestCase
         $fleetFactory = new FleetFactory();
         $fleet = $fleetFactory->createFleet($fleetComposition, 'axxon');
 
-        $defenceStrategy = new DefenceStrategy();
-        $defenceStrategy->joinSupportWithOffenciveForces($fleet);
+        $fleet->associateSupportAndAttackForces();
 
         $this->assertTrue($fleet->isAllAttackForcesHaveSupport());
     }
@@ -45,8 +43,6 @@ class DefenceStrategyTest extends TestCase
         $fleetFactory = new FleetFactory();
         $fleet = $fleetFactory->createFleet($fleetComposition, 'axxon');
 
-        $defenceStrategy = new DefenceStrategy();
-
-        $defenceStrategy->joinSupportWithOffenciveForces($fleet);
+        $fleet->associateSupportAndAttackForces();
     }
 }

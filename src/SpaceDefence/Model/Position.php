@@ -33,7 +33,7 @@ final class Position
         return $this->y;
     }
 
-    public function occupiedBy(Vessel $vessel): ?Vessel
+    public function occupiedBy(Vessel $vessel): void
     {
         $this->occupiedBy = $vessel;
     }
