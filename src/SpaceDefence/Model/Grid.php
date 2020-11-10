@@ -6,7 +6,7 @@ use App\SpaceDefence\Exception;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
-class Grid
+final class Grid
 {
     private ArrayCollection $positions;
 

@@ -7,7 +7,7 @@ use App\SpaceDefence\Model\Fleet;
 use App\SpaceDefence\Model\Role;
 use App\SpaceDefence\Model\Vessel;
 
-class FleetFactory
+final class FleetFactory
 {
     public function createFleet(FleetComposition $fleetComposition, string $commandantName): Fleet
     {

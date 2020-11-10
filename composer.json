@@ -14,8 +14,8 @@
     "doctrine/collections": "v1.6.7"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "3.0.x-dev",
-    "phpunit/phpunit": "8.3"
+    "phpunit/phpunit": "8.3",
+    "symfony/phpunit-bridge": "^5.0"
   },
   "config": {
     "preferred-install": {

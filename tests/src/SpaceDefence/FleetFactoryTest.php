@@ -18,7 +18,6 @@ class FleetFactoryTest extends TestCase
         $fleetComposition->cruisers = 5;
         $fleetComposition->destroyers = 5;
 
-
         $fleetFactory = new FleetFactory();
         $fleet = $fleetFactory->createFleet($fleetComposition, 'axxon');
 

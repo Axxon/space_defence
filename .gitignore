@@ -3,3 +3,6 @@
 .phpunit.result.cache
 docker-compose.override.yml
 vendor
+composer.lock
+/bin/.phpunit/
+phpunit.xml
