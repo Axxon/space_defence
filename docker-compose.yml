@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  http:
+    image: nginx:1.17.7-alpine
+    depends_on:
+      - php
+    volumes:
+      - ./etc/docker/nginx/vhost.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./:/srv/:ro
+
+  php:
+    build:
+      context: etc/docker/php
+    image: test_project/php
+    working_dir: /srv
+    volumes:
+      - ./:/srv
+
+networks:
+  default:
