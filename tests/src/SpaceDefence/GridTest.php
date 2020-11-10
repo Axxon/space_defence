@@ -77,7 +77,7 @@ class GridTest extends TestCase
         $selectedVessel = $fleet->getOffensivesOfType(Vessel\OffensiveCraft\Battleship::TYPE)[0];
 
         $initialPositionOfVessel = $grid->getPositionForVessel($selectedVessel);
-        $initialPositionOfVesselPair = $grid->getPositionForVessel($selectedVessel->pair());
+        $initialPositionOfVesselPair = $grid->getPositionForVessel($selectedVessel->paired());
 
         $grid->moveAPair(
             $selectedVessel,
@@ -89,7 +89,7 @@ class GridTest extends TestCase
         $this->assertEquals($initialPositionOfVessel->x() + 10, $position->x());
         $this->assertEquals($initialPositionOfVessel->y() + 2, $position->y());
 
-        $endPositionForPair = $grid->getPositionForVessel($selectedVessel->pair());
+        $endPositionForPair = $grid->getPositionForVessel($selectedVessel->paired());
         $this->assertEquals($initialPositionOfVesselPair->x() + 10, $endPositionForPair->x());
         $this->assertEquals($initialPositionOfVesselPair->y() + 2, $endPositionForPair->y());
     }

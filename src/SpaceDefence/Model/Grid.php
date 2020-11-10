@@ -85,11 +85,11 @@ final class Grid
 
         $this->removePosition($vesselPosition);
 
-        $occupantPairPosition = $this->getPositionForVessel($vessel->pair());
+        $occupantPairPosition = $this->getPositionForVessel($vessel->paired());
 
         $this->placeVesselAtPosition(
             new Position($occupantPairPosition->x() + $x, $occupantPairPosition->y() + $y),
-            $vessel->pair()
+            $vessel->paired()
         );
 
         $this->removePosition($occupantPairPosition);

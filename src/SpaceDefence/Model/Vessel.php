@@ -29,7 +29,7 @@ abstract class Vessel
         return $this->type;
     }
 
-    public function pair(): Vessel
+    public function paired(): Vessel
     {
         return $this->pair;
     }
