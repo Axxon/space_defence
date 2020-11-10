@@ -60,4 +60,9 @@ final class Fleet
     {
         return $this->fleetComposition;
     }
+
+    public function defence()
+    {
+
+    }
 }

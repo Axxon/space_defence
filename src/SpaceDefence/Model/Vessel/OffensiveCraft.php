@@ -8,6 +8,7 @@ abstract class OffensiveCraft extends Vessel
 {
     protected int $cannons;
     private bool $shieldRaised;
+    private ?SupportCraft $helper;
 
     public function __construct()
     {
@@ -15,6 +16,7 @@ abstract class OffensiveCraft extends Vessel
 
         $this->shieldRaised = false;
         $this->cannons = 0;
+        $this->helper = null;
     }
 
     public function attack(Vessel $target): void
@@ -33,5 +35,10 @@ abstract class OffensiveCraft extends Vessel
     public function invertShields(): void
     {
         $this->shieldRaised = !$this->shieldRaised;
+    }
+
+    public function isHelpedBy(SupportCraft $supportCraft)
+    {
+        $this->helper = $supportCraft;
     }
 }

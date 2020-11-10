@@ -25,4 +25,9 @@ abstract class SupportCraft extends Vessel implements SupportOrders
     {
         echo (string) $that;
     }
+
+    public function helpOffensiveCraft(OffensiveCraft $offensiveCraft): void
+    {
+        $offensiveCraft->isHelpedBy($this);
+    }
 }
