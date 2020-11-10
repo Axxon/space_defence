@@ -78,7 +78,6 @@ final class Grid
     {
         $vesselPosition = $this->getPositionForVessel($vessel);
 
-        //@todo add constraint multiple impossible
         $this->placeVesselAtPosition(
             new Position($vesselPosition->x() + $x, $vesselPosition->y() + $y),
             $vessel,
