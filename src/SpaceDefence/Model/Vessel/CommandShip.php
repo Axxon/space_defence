@@ -11,8 +11,6 @@ final class CommandShip extends Vessel
 
     public function __construct(Character $commandant)
     {
-        parent::__construct();
-
         $this->commandant = $commandant;
     }
 }

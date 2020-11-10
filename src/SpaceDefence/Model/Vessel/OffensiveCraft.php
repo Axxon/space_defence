@@ -12,8 +12,6 @@ abstract class OffensiveCraft extends Vessel
 
     public function __construct()
     {
-        parent::__construct();
-
         $this->shieldRaised = false;
         $this->cannons = 0;
         $this->helper = null;
@@ -40,5 +38,10 @@ abstract class OffensiveCraft extends Vessel
     public function isHelpedBy(SupportCraft $supportCraft)
     {
         $this->helper = $supportCraft;
+    }
+
+    public function hasAnHelper(): bool
+    {
+        return (null !== $this->helper);
     }
 }
